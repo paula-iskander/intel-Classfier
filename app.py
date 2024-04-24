@@ -7,13 +7,12 @@ app = Flask(__name__)
 
 def preprossing(image):
     image=Image.open(image)
-    image = image.resize((150, 150))
-    image_arr = np.array(image.convert('RGB'))
-    image_arr.shape = (1, 150, 150, 3)
+    image = image.resize((224, 224))
+    image_arr.shape = (224, 224, 3)
     return image_arr
 
-classes = ['Buildings' ,'Forest', 'Glacier' ,'Mountain' ,'Sea' ,'Street']
-model=load_model("Intel_Image_Classification.h5")
+classes = ['BCC' ,'MEL', 'NEV' ,'ACK']
+model=load_model("efficientV2.h5")
 
 @app.route('/')
 def index():
