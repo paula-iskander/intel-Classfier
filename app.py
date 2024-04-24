@@ -8,7 +8,7 @@ app = Flask(__name__)
 def preprossing(image):
     image=Image.open(image)
     image = image.resize((224, 224))
-    image_arr.shape = (224, 224, 3)
+    image_arr.shape = (None,224, 224, 3)
     return image_arr
 
 classes = ['BCC' ,'MEL', 'NEV' ,'ACK']
